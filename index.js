@@ -16,8 +16,18 @@
 
 const removeDuplicates = (nums) => {
     //write your code here
+    let front = 0;
+    let end = nums.length - 1;
+    while (front < end) {
+        if (nums[front] !== nums[end]) {
+            end--;
+        } else if (nums[front] === nums[end]) {
+            nums.splice(nums[end], 1);
+        }
+    }
+    return nums.length;
 };
-
+console.log(removeDuplicates([1, 2, 3, 4]));
 // Example usage (commented out to avoid interference with tests)
 // const nums1 = [1, 1, 2];
 // console.log(removeDuplicates(nums1)); // → 2
