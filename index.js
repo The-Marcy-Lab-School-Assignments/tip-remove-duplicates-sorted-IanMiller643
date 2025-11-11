@@ -16,16 +16,17 @@
 
 const removeDuplicates = (nums) => {
     //write your code here
-    let front = 0;
-    let end = nums.length - 1;
-    while (front < end) {
-        if (nums[front] !== nums[end]) {
-            end--;
-        } else if (nums[front] === nums[end]) {
-            nums.splice(nums[end], 1);
+    let l = 0;
+    let r = 0;
+
+    while (r < nums.length) {
+        if (nums[r - 1] !== nums[r]) {
+            nums[l] = nums[r]
+            l++;
         }
+        r++;
     }
-    return nums.length;
+    return l;
 };
 console.log(removeDuplicates([1, 2, 3, 4]));
 // Example usage (commented out to avoid interference with tests)
